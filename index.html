@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple Cut Dev - Retro Vice City</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+  margin:0;
+  font-family: 'VT323', monospace;
+  background: linear-gradient(to bottom, #2b003a, #5a006a);
+  color:#FFF700;
+  overflow-x:auto;
+  position:relative;
+  transition: all 0.5s;
+  min-width:1000px;
+}
+
+body.dark-mode {
+  background:#000;
+  color:#FFF;
+}
+
+/* 🌅 SUN BACKGROUND FIX */
+.sun {
+  position:fixed;
+  bottom:10%;
+  left:50%;
+  width:300px;
+  height:300px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  pointer-events:none;
+
+  background: radial-gradient(circle, #FF6F61, #FF3B3F);
+  box-shadow: 0 0 80px #FF6F61, 0 0 150px #FF3B3F;
+
+  opacity:0.4;
+  z-index:0;
+
+  animation: floatSun 8s infinite ease-in-out alternate;
+}
+
+body.dark-mode .sun {
+  background: radial-gradient(circle, #888, #222);
+  box-shadow: 0 0 40px #FFF, 0 0 80px #FFF;
+  opacity:0.2;
+}
+
+/* supaya konten di atas sun */
+header, nav, main, footer {
+  position:relative;
+  z-index:1;
+}
+
+/* Header */
+header {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  position:relative;
+  gap:20px;
+}
+
+header img.logo {
+  width:50%;
+  max-width:400px;
+  height:auto;
+  object-fit:contain;
+  filter: drop-shadow(0 0 10px #FFF700) drop-shadow(0 0 20px #FFF700);
+}
+
+body.dark-mode header img.logo {
+  filter: drop-shadow(0 0 10px #FFF) drop-shadow(0 0 20px #FFF);
+}
+
+/* Toggle */
+#darkModeToggle {
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:#FFF700;
+  border:none;
+  padding:8px 12px;
+  cursor:pointer;
+  font-family:'VT323', monospace;
+  border-radius:5px;
+}
+body.dark-mode #darkModeToggle {
+  background:#FFF;
+  color:#000;
+}
+
+/* Nav */
+nav {
+  display:flex;
+  justify-content:space-around;
+  background:#330055;
+  padding:10px 0;
+  border-top:2px solid #FFF700;
+  border-bottom:2px solid #FFF700;
+}
+
+nav a {
+  color:#FFF700;
+  text-decoration:none;
+}
+
+body.dark-mode nav {
+  background:#111;
+  border-color:#FFF;
+}
+body.dark-mode nav a {
+  color:#FFF;
+}
+
+/* Main */
+main {
+  padding:20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+section {
+  margin-bottom:50px;
+}
+
+/* Search */
+.search-bar {
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.search-bar input {
+  padding:10px;
+  border:2px solid #FFF700;
+  background:black;
+  color:#FFF700;
+}
+
+/* Game card */
+.game-card {
+  background:rgba(0,0,0,0.5);
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
+  text-align:center;
+}
+
+/* Itch widget */
+.game-card iframe {
+  width:100%;
+  max-width:500px;
+  height:200px;
+  border:2px solid #FFF700;
+}
+
+/* Footer 🔥 PRO */
+footer {
+  text-align:center;
+  padding:20px;
+  background:#330055;
+  color:#FFF700;
+}
+body.dark-mode footer {
+  background:#111;
+  color:#FFF;
+}
+
+/* Animasi sun */
+@keyframes floatSun {
+  0% { transform:translateX(-50%) translateY(0); }
+  100% { transform:translateX(-50%) translateY(-20px); }
+}
+</style>
+</head>
+<body>
+
+<div class="sun"></div>
+
+<header>
+  <img class="logo" src="Logo1.png" alt="Logo Apple Cut Dev">
+  <button id="darkModeToggle">Dark Mode</button>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#games">Game</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main>
+
+<section id="about">
+  <h2>About us</h2>
+  <p>Apple Cut Dev develops games ranging from retro to modern styles with full creativity and imagination. We offer games with a unique and memorable feel. We are an indie developer who enjoys experimenting with new ideas while maintaining our distinctive, characteristic aesthetics.</p>
+</section>
+
+<section id="games">
+  <h2>Our game</h2>
+
+  <div class="search-bar">
+    <input type="text" id="gameSearch" placeholder="Cari game...">
+  </div>
+
+  <div class="game-card" data-title="retris retro puzzle">
+    <iframe src="https://itch.io/embed/4447686?linkback=true&bg_color=130f0f&fg_color=fff&link_color=fff&border_color=fcf013"></iframe>
+  </div>
+
+  <div class="game-card" data-title="retris retro puzzle">
+    <iframe frameborder="0" src="https://itch.io/embed/2426691" width="552" height="167"><a href="https://apple-cut-dev.itch.io/goalkeepers">Goalkeepers by Apple Cut Dev</a></iframe>
+  </div>
+  
+  <div class="game-card" data-title="retris retro puzzle">
+    <iframe frameborder="0" src="https://itch.io/embed/2418219" width="552" height="167"><a href="https://apple-cut-dev.itch.io/ussr">U.S.S.R by Apple Cut Dev</a></iframe>
+  </div>
+  
+  <div class="game-card" data-title="retris retro puzzle">
+    <iframe frameborder="0" src="https://itch.io/embed/2407557" width="552" height="167"><a href="https://apple-cut-dev.itch.io/classic-atari-pong-android-port">Classic Pong for android by Apple Cut Dev</a></iframe>
+  </div>
+  
+  <div class="game-card" data-title="coming soon">
+    <h3>Coming Soon...</h3>
+    <p>In development</p>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <a href="mailto:alfatir.azizan.id@gmail.com">Email: alfatir.azizan.id@gmail.com</a>
+</section>
+
+</main>
+
+<footer>
+  &copy; 2026 Apple Cut Dev. All rights reserved.<br>
+  Crafting Retro Experiences in a Modern World.<br>
+  Independent • Experimental • Unconventional
+</footer>
+
+<script>
+// Search FIX
+const searchInput = document.getElementById('gameSearch');
+const gameCards = document.querySelectorAll('.game-card');
+
+searchInput.addEventListener('input', function() {
+  const query = this.value.toLowerCase();
+
+  gameCards.forEach(card => {
+    const title = card.dataset.title || card.textContent;
+    card.style.display = title.toLowerCase().includes(query) ? 'block' : 'none';
+  });
+});
+
+// Dark mode
+document.getElementById("darkModeToggle").onclick = () => {
+  document.body.classList.toggle("dark-mode");
+};
+</script>
+
+  <audio id="bgMusic" loop>
+  <source src="musicbg.mp3" type="audio/mpeg">
+</audio>
+  
+  <script>const music = document.getElementById("bgMusic");
+
+document.addEventListener("click", () => {
+  music.play();
+}, { once: true });</script>
+  
+</body>
+</html>
